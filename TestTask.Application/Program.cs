@@ -4,7 +4,14 @@ using TestTask.Application.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddRouting(options
+    => options.LowercaseUrls = true);
+
 builder.Services.AddControllers();
+
+builder.Services.AddScoped<ISortingService, SortingService>();
+
+builder.Services.AddScoped<IPalindromeService, PalindromeService>();
 
 builder.Services.AddScoped<ISummaryArrayService<Int32>, SummaryArrayService>();
 
@@ -28,7 +35,7 @@ if (application.Environment.IsDevelopment())
 
 application.UseRouting();
 
-application.MapGet("/", () => "Hello World!");
+application.MapGet("/", () => "Hello, this test application it's working");
 
 application.MapDefaultControllerRoute();
 

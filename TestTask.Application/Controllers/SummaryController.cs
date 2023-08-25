@@ -4,7 +4,7 @@ using TestTask.Application.Services.Interfaces;
 namespace TestTask.Application.Controllers;
 
 [ApiController]
-[Route("api/[controller]/[action]")]
+[Route("api/v1/[controller]/[action]")]
 public class SummaryController : Controller
 {
     private readonly ILogger<SummaryController> _logger;
@@ -17,7 +17,7 @@ public class SummaryController : Controller
     }
     
     [HttpPost]
-    public Task<ActionResult<Int32>> GetAsync([FromBody] Int32[] ints)
+    public Task<ActionResult<Int32>> SummaryOddAsync([FromBody] Int32[] ints)
     {
         try
         {
