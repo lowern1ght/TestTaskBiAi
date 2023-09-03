@@ -9,28 +9,28 @@ builder.Services.AddRouting(options
 
 builder.Services.AddControllers();
 
-builder.Services.AddScoped<ISortingService, SortingService>();
-
-builder.Services.AddScoped<IPalindromeService, PalindromeService>();
-
-builder.Services.AddScoped<ISummaryArrayService<Int32>, SummaryArrayService>();
+builder.Services
+    .AddScoped<ISummaryArrayService<Int32>, SummaryArrayService>()
+    .AddScoped<IPalindromeService, PalindromeService>()
+    .AddScoped<ISortingService, SortingService>();
 
 builder.Logging.ClearProviders()
     .AddSerilog();
 
-builder.Services.AddEndpointsApiExplorer();
-
 if (builder.Environment.IsDevelopment())
 {
-    builder.Services.AddSwaggerGen();
+    builder.Services
+        .AddEndpointsApiExplorer()
+        .AddSwaggerGen();
 }
 
 var application = builder.Build();
 
 if (application.Environment.IsDevelopment())
 {
-    application.UseSwagger();
-    application.UseSwaggerUI();
+    application
+        .UseSwagger()
+        .UseSwaggerUI();
 }
 
 application.UseRouting();
