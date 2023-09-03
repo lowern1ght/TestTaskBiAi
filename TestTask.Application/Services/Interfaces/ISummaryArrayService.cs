@@ -2,5 +2,5 @@
 
 public interface ISummaryArrayService<TOut>
 {
-    TOut GetSummaryNumbers(TOut[] nums);
+    TOut GetSummaryNumbers(IReadOnlyCollection<TOut> nums);
 }
