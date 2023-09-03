@@ -17,7 +17,7 @@ public class SummaryArrayService : ISummaryArrayService<Int32>
     }
     
     // since it was not specified which type to use, I use the standard for this architecture
-    // так как не было указано какой тип использовать использую стандарт для данной архитектуры
+    // так как не было указано какой тип использовать использую стандарт для своей архитектуры процессора
     public int GetSummaryNumbers(int[] nums)
     {
         Int32 summary = 0, count = 0;
